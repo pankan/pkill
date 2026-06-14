@@ -67,11 +67,13 @@ cd pkill
 open pkill.app
 ```
 
-To produce the distributable disk image:
+To produce the distributable disk image (requires [`create-dmg`](https://github.com/create-dmg/create-dmg) — `brew install create-dmg`):
 
 ```bash
 ./make_dmg.sh        # builds the app and packages pkill.dmg
 ```
+
+The DMG background lives in `assets/bg.png` (and `assets/bg@2x.png` for retina) — edit those to change it.
 
 You can also run it straight from SwiftPM during development:
 
