@@ -1,0 +1,11 @@
+# SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+# Build artifacts
+pkill.app/
+*.dmg
+
+# macOS
+.DS_Store
