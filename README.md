@@ -5,7 +5,13 @@ A tiny macOS menu bar app for finding and killing whatever is squatting on a por
 `EADDRINUSE`, `port 3000 already in use`, that stale dev server you can't find — click the menu bar icon, see every listening port, hit ✕. No terminal, no `lsof | grep | kill` dance.
 
 <p align="center">
-  <img src="AppIcon.icns" width="120" alt="pkill icon">
+  <img src="promo-assets/AppIcon.png" width="120" alt="pkill icon">
+</p>
+
+<p align="center">
+  <img src="promo-assets/screenshot-light.png" width="340" alt="pkill in light mode">
+  &nbsp;&nbsp;
+  <img src="promo-assets/screenshot-dark.png" width="340" alt="pkill in dark mode">
 </p>
 
 ## Features
