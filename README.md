@@ -33,7 +33,7 @@ Your app won't start because "port 3000 is already in use"? Some old server is s
 
 ### From a release
 
-**[⬇ Download the latest pkill.dmg](https://github.com/pankan/pkill/releases/latest/download/pkill.dmg)**
+**[Download the latest pkill.dmg](https://github.com/pankan/pkill/releases/latest/download/pkill.dmg)**
 
 Open it and drag **pkill** to **Applications**.
 
