@@ -37,8 +37,26 @@ Your app won't start because "port 3000 is already in use"? Some old server is s
 
 Open it and drag **pkill** to **Applications**.
 
-The app is ad-hoc signed (not notarized), so the first launch needs Gatekeeper approval:
-right-click **pkill.app → Open**, then confirm. Or run `xattr -dr com.apple.quarantine /Applications/pkill.app`.
+### ⚠️ First launch — this is normal, pkill is safe
+
+pkill is open source and ad-hoc signed, but it isn't notarized by Apple, so macOS shows this scary-looking warning the **first time** you open it:
+
+<p align="center">
+  <img src="promo-assets/gatekeeper.png" width="320" alt="macOS Gatekeeper warning: pkill Not Opened">
+</p>
+
+**Do _not_ click "Move to Bin".** Instead, open it once like this:
+
+1. Click **Done** to dismiss the dialog.
+2. Open **System Settings → Privacy & Security**, scroll to the bottom, and click **Open Anyway** next to the pkill message.
+3. Confirm with **Open**.
+
+You only have to do this once. After that pkill opens normally.
+
+> Prefer the terminal? One command clears the quarantine flag instead:
+> ```bash
+> xattr -dr com.apple.quarantine /Applications/pkill.app
+> ```
 
 ### Build from source
 
