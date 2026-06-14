@@ -33,7 +33,9 @@ Your app won't start because "port 3000 is already in use"? Some old server is s
 
 ### From a release
 
-Download `pkill.dmg`, open it, and drag **pkill** to **Applications**.
+**[⬇ Download the latest pkill.dmg](https://github.com/pankan/pkill/releases/latest/download/pkill.dmg)**
+
+Open it and drag **pkill** to **Applications**.
 
 The app is ad-hoc signed (not notarized), so the first launch needs Gatekeeper approval:
 right-click **pkill.app → Open**, then confirm. Or run `xattr -dr com.apple.quarantine /Applications/pkill.app`.
