@@ -4,6 +4,8 @@ A tiny macOS menu bar app for finding and killing whatever is squatting on a por
 
 Your app won't start because "port 3000 is already in use"? Some old server is still running and you have no idea where. Just click the menu bar icon, find the port, and tap ✕. Done — no scary terminal commands, no Googling what `lsof` even means.
 
+> **For the terminal crowd:** it's `lsof -iTCP -sTCP:LISTEN` + `kill` in a menu bar dropdown. Same workflow, zero typing — scan, filter, `SIGTERM` (then `SIGKILL` if it won't die).
+
 <p align="center">
   <img src="promo-assets/AppIcon.png" width="120" alt="pkill icon">
 </p>
