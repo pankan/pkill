@@ -8,7 +8,7 @@ VOL="pkill"
 
 # Requires create-dmg:  brew install create-dmg
 if ! command -v create-dmg >/dev/null 2>&1; then
-    echo "✗ create-dmg not found. Install it with:  brew install create-dmg" >&2
+    echo "Error: create-dmg not found. Install it with:  brew install create-dmg" >&2
     exit 1
 fi
 
@@ -20,7 +20,7 @@ rm -f "$DMG"
 
 # PNG background; create-dmg auto-uses assets/bg@2x.png for retina.
 # Edit assets/bg.png and assets/bg@2x.png to change the DMG background.
-echo "▸ Building $DMG…"
+echo "==> Building ${DMG}..."
 create-dmg \
     --volname "$VOL" \
     --background "assets/bg.png" \
@@ -35,5 +35,5 @@ create-dmg \
     "$APP"
 
 SIZE="$(du -h "$DMG" | cut -f1 | tr -d ' ')"
-echo "▸ Done: $(pwd)/$DMG ($SIZE)"
-echo "  open $DMG"
+echo "==> Done: $(pwd)/${DMG} (${SIZE})"
+echo "  open ${DMG}"

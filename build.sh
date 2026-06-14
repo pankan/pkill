@@ -5,12 +5,12 @@ cd "$(dirname "$0")"
 APP="pkill.app"
 CONFIG="${1:-release}"
 
-echo "▸ Building ($CONFIG)…"
+echo "==> Building (${CONFIG})..."
 swift build -c "$CONFIG"
 
 BIN="$(swift build -c "$CONFIG" --show-bin-path)/pkill"
 
-echo "▸ Assembling $APP…"
+echo "==> Assembling ${APP}..."
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/pkill"
@@ -40,5 +40,5 @@ PLIST
 # Ad-hoc sign so the menu bar item and glass render correctly.
 codesign --force --deep --sign - "$APP" >/dev/null 2>&1 || true
 
-echo "▸ Done: $(pwd)/$APP"
-echo "  Run with:  open $APP    (or ./build.sh && open pkill.app)"
+echo "==> Done: $(pwd)/${APP}"
+echo "  Run with:  open ${APP}    (or ./build.sh && open pkill.app)"
