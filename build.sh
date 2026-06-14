@@ -24,8 +24,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <key>CFBundleName</key>            <string>pkill</string>
     <key>CFBundleDisplayName</key>     <string>pkill</string>
     <key>CFBundleIdentifier</key>      <string>com.local.pkill</string>
-    <key>CFBundleVersion</key>         <string>1.0</string>
-    <key>CFBundleShortVersionString</key> <string>1.0</string>
+    <key>CFBundleVersion</key>         <string>1.1.0</string>
+    <key>CFBundleShortVersionString</key> <string>1.1.0</string>
     <key>CFBundlePackageType</key>     <string>APPL</string>
     <key>CFBundleExecutable</key>      <string>pkill</string>
     <key>CFBundleIconFile</key>        <string>AppIcon</string>
