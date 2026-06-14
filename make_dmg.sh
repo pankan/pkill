@@ -12,11 +12,11 @@ ICON=128
 # Fresh app bundle.
 ./build.sh release >/dev/null
 
-# Retina-aware background (.tiff with 1x + 2x reps).
-echo "▸ Rendering background…"
+# Retina-aware background (.tiff with 1x + 2x reps) from the committed PNGs.
+# Edit assets/bg_1x.png and assets/bg_2x.png to change the DMG background.
+echo "▸ Composing background…"
 TMP="$(mktemp -d)"
-swift scripts/make_bg.swift "$TMP" >/dev/null
-tiffutil -cathidpicheck "$TMP/bg_1x.png" "$TMP/bg_2x.png" -out "$TMP/background.tiff" >/dev/null 2>&1
+tiffutil -cathidpicheck assets/bg_1x.png assets/bg_2x.png -out "$TMP/background.tiff" >/dev/null 2>&1
 
 echo "▸ Staging…"
 STAGE="$(mktemp -d)"
