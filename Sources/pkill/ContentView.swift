@@ -143,14 +143,23 @@ struct PortRow: View {
                 .frame(minWidth: 52, alignment: .leading)
 
             VStack(alignment: .leading, spacing: 1) {
-                Text(entry.command)
-                    .font(.system(size: 12, weight: .medium))
-                    .lineLimit(1)
+                HStack(spacing: 5) {
+                    Text(entry.command)
+                        .font(.system(size: 12, weight: .medium))
+                        .lineLimit(1)
+                    if entry.isSystem {
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 8, weight: .bold))
+                            .foregroundStyle(.secondary)
+                            .help("System process — needs elevated privileges to kill")
+                    }
+                }
                 Text("PID \(entry.pid) · \(entry.proto) · \(entry.addr)")
                     .font(.system(size: 10))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
             }
+            .opacity(entry.isSystem ? 0.55 : 1)
             Spacer(minLength: 4)
 
             killButton
@@ -169,16 +178,18 @@ struct PortRow: View {
                 if isKilling {
                     ProgressView().controlSize(.small)
                 } else {
-                    Image(systemName: "xmark")
+                    Image(systemName: entry.isSystem ? "lock.fill" : "xmark")
                         .font(.system(size: 11, weight: .bold))
                 }
             }
             .frame(width: 26, height: 26)
         }
         .buttonStyle(.plain)
-        .foregroundStyle(isHovered ? Color.red : .secondary)
+        .foregroundStyle(entry.isSystem ? Color.secondary.opacity(0.5) : (isHovered ? Color.red : Color.secondary))
         .glassEffect(.regular.interactive(), in: .circle)
-        .disabled(isKilling)
-        .help("Kill \(entry.command) (PID \(entry.pid))")
+        .disabled(isKilling || entry.isSystem)
+        .help(entry.isSystem
+              ? "System process — can't be killed without elevated privileges"
+              : "Kill \(entry.command) (PID \(entry.pid))")
     }
 }

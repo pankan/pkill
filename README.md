@@ -21,6 +21,7 @@ Your app won't start because "port 3000 is already in use"? Some old server is s
 - **Lists every listening port** (TCP and UDP) with the owning process, PID, protocol, and bind address.
 - **Filter as you type** by port number, process name, or PID.
 - **One-click kill** — sends `SIGTERM`, then escalates to `SIGKILL` if the process is still alive after a short grace period.
+- **Flags system processes** — Apple/OS daemons (and anything running as root) get a 🔒 badge and a disabled kill button, so you don't waste a click on something macOS will just relaunch. Your apps and dev servers stay fully killable.
 - **Lives in the menu bar** — no Dock icon, no window clutter (`LSUIElement`).
 - Native SwiftUI with the macOS glass look.
 
