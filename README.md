@@ -30,6 +30,14 @@ Your app won't start because "port 3000 is already in use"? Some old server is s
 - macOS 26 (Tahoe) or later
 - For building: Swift 6.2+ toolchain (Xcode 26 or the matching command-line tools)
 
+## OS Support
+
+pkill is built exclusively for macOS and does not support Linux or Windows. This is due to its deep integration with macOS-specific technologies:
+- **UI Framework**: The app is built using SwiftUI's `MenuBarExtra`, which is a macOS-specific API for creating native menu bar applications.
+- **Process Management**: It relies on the `Darwin` module and macOS-specific C APIs (like `proc_pidpath` from `libproc.h`) to resolve executable paths and identify system processes.
+- **System Commands**: The port scanning logic shells out to `/usr/sbin/lsof` using flags and output formats (`-FpcunPt`) that are tailored to the macOS version of `lsof`.
+- **System Architecture**: It uses macOS-specific directory paths (e.g., `/System/`, `/Library/Apple/`) to distinguish between user applications and protected OS daemons.
+
 ## Install
 
 ### From a release
